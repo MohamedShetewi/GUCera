@@ -1,0 +1,68 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.Configuration;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace GUCera
+{
+    public partial class AddNewCourse : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Session["user"] == null)
+                Response.Redirect("Login.aspx");
+            else if (Session["type"] .Equals ("1"))
+                Response.Redirect("AdminHomePage.aspx");
+            else if (Session["type"].Equals("2"))
+                Response.Redirect("StudentHomePage.aspx");
+        }
+
+        protected void courseName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void addButton_Click(object sender, EventArgs e)
+        {
+
+            string connstr = WebConfigurationManager.ConnectionStrings["GUCera"].ToString();
+            SqlConnection conn = new SqlConnection(connstr);
+
+            try { 
+            int _creditHours = Int16.Parse(creditHours.Text);
+            decimal _price = Decimal.Parse(price.Text);
+            string _courseName = courseName.Text;
+            
+
+            SqlCommand InstAddCourse = new SqlCommand("InstAddCourse", conn);
+            InstAddCourse.CommandType = CommandType.StoredProcedure;
+
+            InstAddCourse.Parameters.Add(new SqlParameter("@creditHours", _creditHours));
+            InstAddCourse.Parameters.Add(new SqlParameter("@name", _courseName));
+            InstAddCourse.Parameters.Add(new SqlParameter("@price", _price));
+            InstAddCourse.Parameters.Add(new SqlParameter("@instructorId", Session["user"]));
+
+                conn.Open();
+                InstAddCourse.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                Response.Write("Invalid details.");
+            }
+            catch (System.FormatException)
+            {
+                Response.Write("Invalid details.");
+            }
+            catch (System.OverflowException)
+            {
+                Response.Write("Invalid details.");
+            }
+        }
+    }
+}

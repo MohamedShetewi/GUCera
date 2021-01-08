@@ -33,7 +33,7 @@ namespace GUCera
             string _email = email.Text;
             string _address = address.Text;
             bool _gender = gender.SelectedValue.Equals("1");
-            bool _type = type.SelectedValue.Equals("0"); //instrructor
+            bool _type = type.SelectedValue.Equals("0"); //instructor
 
             if (_type)
             {
@@ -47,9 +47,16 @@ namespace GUCera
                 instructorRegister.Parameters.Add(new SqlParameter("@gender", _gender));
                 instructorRegister.Parameters.Add(new SqlParameter("@address", _address));
 
-                conn.Open();
-                instructorRegister.ExecuteNonQuery();
-                conn.Close();
+                try
+                {
+                    conn.Open();
+                    instructorRegister.ExecuteNonQuery();
+                    conn.Close();
+                }
+                catch (System.Data.SqlClient.SqlException)
+                {
+                    Response.Write("Please stick to length of maximum 10 letters.");
+                }
             }
             else
             {
@@ -63,9 +70,16 @@ namespace GUCera
                 studentRegister.Parameters.Add(new SqlParameter("@gender", _gender));
                 studentRegister.Parameters.Add(new SqlParameter("@address", _address));
 
-                conn.Open();
-                studentRegister.ExecuteNonQuery();
-                conn.Close();
+                try
+                {
+                    conn.Open();
+                    studentRegister.ExecuteNonQuery();
+                    conn.Close();
+                }
+                catch (System.Data.SqlClient.SqlException)
+                {
+                    Response.Write("Please stick to length of maximum 10 letters.");
+                }
             }
             
 

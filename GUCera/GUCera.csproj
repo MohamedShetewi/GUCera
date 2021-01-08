@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddMobileNumber.aspx" />
+    <Content Include="AddNewCourse.aspx" />
+    <Content Include="DefineAssignments.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Registeration.aspx" />
     <Content Include="Web.config" />
@@ -79,6 +81,20 @@
     </Compile>
     <Compile Include="AddMobileNumber.aspx.designer.cs">
       <DependentUpon>AddMobileNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewCourse.aspx.cs">
+      <DependentUpon>AddNewCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddNewCourse.aspx.designer.cs">
+      <DependentUpon>AddNewCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DefineAssignments.aspx.cs">
+      <DependentUpon>DefineAssignments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DefineAssignments.aspx.designer.cs">
+      <DependentUpon>DefineAssignments.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

@@ -22,44 +22,53 @@ namespace GUCera
             string connstr = WebConfigurationManager.ConnectionStrings["GUCera"].ToString();
             SqlConnection conn = new SqlConnection(connstr);
 
-            int _ID = Int16.Parse(id.Text);
-            string _password = password.Text;
 
-            SqlCommand userLogin = new SqlCommand("userLogin", conn);
-            userLogin.CommandType = CommandType.StoredProcedure;
+            try {
+                int _ID = Int16.Parse(id.Text);
+                string _password = password.Text;
 
-            userLogin.Parameters.Add(new SqlParameter("@id", _ID));
-            userLogin.Parameters.Add(new SqlParameter("@password", _password));
+                SqlCommand userLogin = new SqlCommand("userLogin", conn);
+                userLogin.CommandType = CommandType.StoredProcedure;
 
-            SqlParameter _success = userLogin.Parameters.Add("@success", SqlDbType.Bit);
-            SqlParameter _type = userLogin.Parameters.Add("@type", SqlDbType.Int);
-            _success.Direction = ParameterDirection.Output;
-            _type.Direction = ParameterDirection.Output;
+                userLogin.Parameters.Add(new SqlParameter("@id", _ID));
+                userLogin.Parameters.Add(new SqlParameter("@password", _password));
+
+                SqlParameter _success = userLogin.Parameters.Add("@success", SqlDbType.Bit);
+                SqlParameter _type = userLogin.Parameters.Add("@type", SqlDbType.Int);
+                _success.Direction = ParameterDirection.Output;
+                _type.Direction = ParameterDirection.Output;
 
 
-            conn.Open();
-            userLogin.ExecuteNonQuery();
-            conn.Close();
-            if (_success.Value.ToString().Equals("True"))
-            {
-                Session["user"] = _ID;
-                if (_type.Value.ToString().Equals("0"))
-                {                   
-                    Response.Redirect("AddMobileNumber.aspx");
-                }
-                else if (_type.Value.ToString().Equals("2"))
+                conn.Open();
+                userLogin.ExecuteNonQuery();
+                conn.Close();
+
+
+                if (_success.Value.ToString().Equals("True"))
                 {
-                    Response.Redirect("StudentHomePage.aspx");
+                    Session["user"] = _ID;
+                    Session["type"] = _type.Value.ToString();
+
+                    if (_type.Value.ToString().Equals("0")) //instructor
+                        Response.Redirect("DefineAssignments.aspx");
+                    else if (_type.Value.ToString().Equals("2")) //student
+                        Response.Redirect("StudentHomePage.aspx");
+                    else                                         //admin
+                        Response.Redirect("AdminHomePage.aspx");
                 }
                 else
-                {
-                    Response.Redirect("AdminHomePage.aspx");
-                }
+                    Response.Write("Wrong id or password");
             }
-            else
+            catch (System.FormatException)
             {
-                Response.Write("Wrong id or password");
+                Response.Write("Please enter your valid id and password");
+            }
+            catch (System.OverflowException)
+            {
+                Response.Write("Please enter your valid id and password");
             }
         }
     }
+
+
 }
