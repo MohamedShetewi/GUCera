@@ -20,6 +20,8 @@ namespace GUCera
                 Response.Redirect("AdminHomePage.aspx");
             else if (Session["type"].Equals("2"))
                 Response.Redirect("StudentHomePage.aspx");
+            message.Visible = false;
+            errorMessage.Visible = false;
         }
 
         protected void issueButton_Click(object sender, EventArgs e)
@@ -45,19 +47,20 @@ namespace GUCera
                 conn.Open();
                 InstructorIssueCertificateToStudent.ExecuteNonQuery();
                 conn.Close();
+                message.Visible = true;
 
             }
             catch (System.Data.SqlClient.SqlException)
             {
-                Response.Write("Invalid details.");
+                errorMessage.Visible = true;
             }
             catch (System.FormatException)
             {
-                Response.Write("Invalid details.");
+                errorMessage.Visible = true;
             }
             catch (System.OverflowException)
             {
-                Response.Write("Invalid details.");
+                errorMessage.Visible = true;
             }
 
         }

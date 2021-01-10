@@ -14,12 +14,14 @@ namespace GUCera
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-             if (Session["user"] == null)
+            if (Session["user"] == null)
                 Response.Redirect("Login.aspx");
             else if (Session["type"].Equals("1"))
                 Response.Redirect("AdminHomePage.aspx");
             else if (Session["type"].Equals("2"))
                 Response.Redirect("StudentHomePage.aspx");
+            errorMessage.Visible = false;
+            tableTitle.Visible = false;
         }
 
         protected void viewButton_Click(object sender, EventArgs e)
@@ -27,11 +29,13 @@ namespace GUCera
             string connstr = WebConfigurationManager.ConnectionStrings["GUCera"].ToString();
             SqlConnection conn = new SqlConnection(connstr);
 
-            try {
+            try
+            {
                 int _courseID = Int16.Parse(courseID.Text);
-                int _ID = (int)Session["user"];
+                int _ID = (int) Session["user"];
 
-                SqlCommand InstructorViewAssignmentsStudents = new SqlCommand("InstructorViewAssignmentsStudents", conn);
+                SqlCommand InstructorViewAssignmentsStudents =
+                    new SqlCommand("InstructorViewAssignmentsStudents", conn);
                 InstructorViewAssignmentsStudents.CommandType = CommandType.StoredProcedure;
 
                 InstructorViewAssignmentsStudents.Parameters.Add(new SqlParameter("@instrId", _ID));
@@ -40,52 +44,78 @@ namespace GUCera
                 conn.Open();
                 SqlDataReader reader = InstructorViewAssignmentsStudents.ExecuteReader(CommandBehavior.CloseConnection);
 
+                tableTitle.Visible = true;
+                TableHeaderRow headerRow = new TableHeaderRow();
+
+                TableHeaderCell col1 = new TableHeaderCell();
+                col1.Text = "Student ID";
+                col1.Scope = TableHeaderScope.Column;
+                TableHeaderCell col2 = new TableHeaderCell();
+                col2.Text = "Course ID";
+                col2.Scope = TableHeaderScope.Column;
+                TableHeaderCell col3 = new TableHeaderCell();
+                col3.Text = "Assignment Number";
+                col3.Scope = TableHeaderScope.Column;
+                TableHeaderCell col4 = new TableHeaderCell();
+                col4.Text = "Assignment Type";
+                col4.Scope = TableHeaderScope.Column;
+                TableHeaderCell col5 = new TableHeaderCell();
+                col5.Text = "Grade";
+                col5.Scope = TableHeaderScope.Column;
+
+                headerRow.Cells.Add(col1);
+                headerRow.Cells.Add(col2);
+                headerRow.Cells.Add(col3);
+                headerRow.Cells.Add(col4);
+                headerRow.Cells.Add(col5);
+
+                table.Rows.Add(headerRow);
 
                 while (reader.Read())
                 {
-                    int studentID = reader.GetInt32(reader.GetOrdinal("sid"));
-                    int courseID = reader.GetInt32(reader.GetOrdinal("cid"));
-                    int assignmentNumber = reader.GetInt32(reader.GetOrdinal("assignmentNumber"));
-                    string assignmentType = reader.GetString(reader.GetOrdinal("assignmenttype"));
-                    decimal grade = reader.GetDecimal(reader.GetOrdinal("grade"));
+                    string studentId = reader["sid"].ToString();
+                    string courseId = reader["cid"].ToString();
+                    string assignmentNumber = reader["assignmentNumber"].ToString();
+                    string assignmentType = reader["assignmenttype"].ToString();
+                    string grade = reader["grade"].ToString();
 
                     TableRow row = new TableRow();
 
                     TableCell studentIDCell = new TableCell();
-                    studentIDCell.Text = studentID.ToString();
-                    row.Controls.Add(studentIDCell);
+                    studentIDCell.Text = studentId;
+                    row.Cells.Add(studentIDCell);
 
                     TableCell courseIDCell = new TableCell();
-                    courseIDCell.Text = courseID.ToString();
-                    row.Controls.Add(courseIDCell);
+                    courseIDCell.Text = courseId;
+                    row.Cells.Add(courseIDCell);
 
                     TableCell assignmentNumberCell = new TableCell();
-                    assignmentNumberCell.Text = assignmentNumber.ToString();
-                    row.Controls.Add(assignmentNumberCell);
+                    assignmentNumberCell.Text = assignmentNumber;
+                    row.Cells.Add(assignmentNumberCell);
 
                     TableCell assignmentTypeCell = new TableCell();
                     assignmentTypeCell.Text = assignmentType;
-                    row.Controls.Add(assignmentTypeCell);
+                    row.Cells.Add(assignmentTypeCell);
 
                     TableCell gradeCell = new TableCell();
-                    gradeCell.Text = grade.ToString();
-                    row.Controls.Add(gradeCell);
+                    gradeCell.Text = grade;
+                    row.Cells.Add(gradeCell);
 
                     table.Rows.Add(row);
-
                 }
-
-
-
             }
             catch (System.FormatException)
             {
-                Response.Write("Please enter a valid course ID.");
+                errorMessage.Visible = true;
             }
             catch (System.OverflowException)
             {
-                Response.Write("Please enter a valid course ID.");
+                errorMessage.Visible = true;
             }
-           }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                errorMessage.Visible = true;
+            }
+        }
     }
 }
