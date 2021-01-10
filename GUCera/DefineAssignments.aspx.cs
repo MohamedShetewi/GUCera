@@ -20,18 +20,10 @@ namespace GUCera
                 Response.Redirect("AdminHomePage.aspx");
             else if (Session["type"].Equals("2"))
                 Response.Redirect("StudentHomePage.aspx");
+            message.Visible = false;
+            errorMessage.Visible = false;
         }
-
-        protected void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         protected void define_Click(object sender, EventArgs e)
         {
             string connstr = WebConfigurationManager.ConnectionStrings["GUCera"].ToString();
@@ -63,18 +55,19 @@ namespace GUCera
                 conn.Open();
                 DefineAssignmentOfCourseOfCertianType.ExecuteNonQuery();
                 conn.Close();
+                message.Visible = true;
             }
             catch (System.Data.SqlClient.SqlException)
             {
-                Response.Write("Invalid details.");
+                errorMessage.Visible = true;
             }
             catch (System.FormatException)
             {
-                Response.Write("Invalid details.");
+                errorMessage.Visible = true;
             }
             catch (System.OverflowException)
             {
-                Response.Write("Invalid details.");
+                errorMessage.Visible = true;
             }
 
         }
