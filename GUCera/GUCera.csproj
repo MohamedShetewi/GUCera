@@ -326,7 +326,6 @@
     <Compile Include="Registeration.aspx.designer.cs">
       <DependentUpon>Registeration.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SqlParamter.cs" />
     <Compile Include="ViewAssignments.aspx.cs">
       <DependentUpon>ViewAssignments.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
