@@ -40,7 +40,7 @@
 <h1>GUCera</h1>
 <form id="form1" runat="server" class="needs-validation">
     <div class="vertical-center">
-        <div class="container inputs pt-5 ps-5 pb-5 pe-5">
+        <div class="container inputs p-5">
             <div class="row mb-2">
                 <div class="col">First Name</div>
                 <div class="col-8">
@@ -94,6 +94,16 @@
             <div class="text-center mb-2 mt-3">
                 <asp:Button ID="register" runat="server" Text="Register" oncLick="register_Click" class="btn btn-outline-primary"/>
             </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center" runat="server" ID="message">
+        <div class="alert alert-success" role="alert" style="max-width: fit-content">
+            User Registered Successfully! <a class="link-success" href="Login.aspx">Login Here.</a>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center" runat="server" ID="errorMessage">
+        <div class="alert alert-danger" role="alert" style="max-width: fit-content">
+            Invalid Inputs!
         </div>
     </div>
 </form>

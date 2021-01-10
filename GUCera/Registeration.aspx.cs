@@ -14,76 +14,86 @@ namespace GUCera
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            message.Visible = false;
+            errorMessage.Visible = false;
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         protected void register_Click(object sender, EventArgs e)
         {
-            string connstr = WebConfigurationManager.ConnectionStrings["GUCera"].ToString();
-            SqlConnection conn = new SqlConnection(connstr);
-
-            string _firstName = firstName.Text;
-            string _lastName = lastName.Text;
-            string _password = password.Text;
-            string _email = email.Text;
-            string _address = address.Text;
-            bool _gender = gender.SelectedValue.Equals("1");
-            bool _type = type.SelectedValue.Equals("0"); //instructor
-
-            if (_type)
+            try
             {
-                SqlCommand instructorRegister = new SqlCommand("InstructorRegister", conn);
-                instructorRegister.CommandType = CommandType.StoredProcedure;
+                string connstr = WebConfigurationManager.ConnectionStrings["GUCera"].ToString();
+                SqlConnection conn = new SqlConnection(connstr);
 
-                instructorRegister.Parameters.Add(new SqlParameter("@first_name", _firstName));
-                instructorRegister.Parameters.Add(new SqlParameter("@last_name", _lastName));
-                instructorRegister.Parameters.Add(new SqlParameter("@password", _password));
-                instructorRegister.Parameters.Add(new SqlParameter("@email", _email));
-                instructorRegister.Parameters.Add(new SqlParameter("@gender", _gender));
-                instructorRegister.Parameters.Add(new SqlParameter("@address", _address));
+                string _firstName = firstName.Text;
+                string _lastName = lastName.Text;
+                string _password = password.Text;
+                string _email = email.Text;
+                string _address = address.Text;
+                bool _gender = gender.SelectedValue.Equals("1");
+                bool _type = type.SelectedValue.Equals("0"); //instructor
 
-                try
+                if (_type)
                 {
-                    conn.Open();
-                    instructorRegister.ExecuteNonQuery();
-                    conn.Close();
+                    SqlCommand instructorRegister = new SqlCommand("InstructorRegister", conn);
+                    instructorRegister.CommandType = CommandType.StoredProcedure;
+
+                    instructorRegister.Parameters.Add(new SqlParameter("@first_name", _firstName));
+                    instructorRegister.Parameters.Add(new SqlParameter("@last_name", _lastName));
+                    instructorRegister.Parameters.Add(new SqlParameter("@password", _password));
+                    instructorRegister.Parameters.Add(new SqlParameter("@email", _email));
+                    instructorRegister.Parameters.Add(new SqlParameter("@gender", _gender));
+                    instructorRegister.Parameters.Add(new SqlParameter("@address", _address));
+
+                    try
+                    {
+                        conn.Open();
+                        instructorRegister.ExecuteNonQuery();
+                        conn.Close();
+                        message.Visible = true;
+                    }
+                    catch (System.Data.SqlClient.SqlException)
+                    {
+                        errorMessage.Visible = true;
+                    }
                 }
-                catch (System.Data.SqlClient.SqlException)
+                else
                 {
-                    Response.Write("Please stick to length of maximum 10 letters.");
+                    SqlCommand studentRegister = new SqlCommand("studentRegister", conn);
+                    studentRegister.CommandType = CommandType.StoredProcedure;
+
+                    studentRegister.Parameters.Add(new SqlParameter("@first_name", _firstName));
+                    studentRegister.Parameters.Add(new SqlParameter("@last_name", _lastName));
+                    studentRegister.Parameters.Add(new SqlParameter("@password", _password));
+                    studentRegister.Parameters.Add(new SqlParameter("@email", _email));
+                    studentRegister.Parameters.Add(new SqlParameter("@gender", _gender));
+                    studentRegister.Parameters.Add(new SqlParameter("@address", _address));
+
+                    try
+                    {
+                        conn.Open();
+                        studentRegister.ExecuteNonQuery();
+                        conn.Close();
+                        message.Visible = true;
+                    }
+                    catch (System.Data.SqlClient.SqlException)
+                    {
+                        errorMessage.Visible = true;
+                    }
                 }
             }
-            else
+            catch (System.FormatException)
             {
-                SqlCommand studentRegister = new SqlCommand("studentRegister", conn);
-                studentRegister.CommandType = CommandType.StoredProcedure;
-
-                studentRegister.Parameters.Add(new SqlParameter("@first_name", _firstName));
-                studentRegister.Parameters.Add(new SqlParameter("@last_name", _lastName));
-                studentRegister.Parameters.Add(new SqlParameter("@password", _password));
-                studentRegister.Parameters.Add(new SqlParameter("@email", _email));
-                studentRegister.Parameters.Add(new SqlParameter("@gender", _gender));
-                studentRegister.Parameters.Add(new SqlParameter("@address", _address));
-
-                try
-                {
-                    conn.Open();
-                    studentRegister.ExecuteNonQuery();
-                    conn.Close();
-                }
-                catch (System.Data.SqlClient.SqlException)
-                {
-                    Response.Write("Please stick to length of maximum 10 letters.");
-                }
+                errorMessage.Visible = true;
             }
-            
-
-         
+            catch (System.OverflowException)
+            {
+                errorMessage.Visible = true;
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ namespace GUCera
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            errorMessage.Visible = false;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -23,7 +23,8 @@ namespace GUCera
             SqlConnection conn = new SqlConnection(connstr);
 
 
-            try {
+            try
+            {
                 int _ID = Int16.Parse(id.Text);
                 string _password = password.Text;
 
@@ -53,22 +54,20 @@ namespace GUCera
                         Response.Redirect("DefineAssignments.aspx");
                     else if (_type.Value.ToString().Equals("2")) //student
                         Response.Redirect("StudentHomePage.aspx");
-                    else                                         //admin
+                    else //admin
                         Response.Redirect("AdminHomePage.aspx");
                 }
                 else
-                    Response.Write("Wrong id or password");
+                    errorMessage.Visible = true;
             }
             catch (System.FormatException)
             {
-                Response.Write("Please enter your valid id and password");
+                errorMessage.Visible = true;
             }
             catch (System.OverflowException)
             {
-                Response.Write("Please enter your valid id and password");
+                errorMessage.Visible = true;
             }
         }
     }
-
-
 }

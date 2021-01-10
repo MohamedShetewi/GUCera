@@ -38,7 +38,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="AdminHomePage.aspx">
-                        Admin Home Page
+                        Admin Dashboard
                     </a>
                 </li>
             </ul>
