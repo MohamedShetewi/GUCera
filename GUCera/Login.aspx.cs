@@ -26,7 +26,7 @@ namespace GUCera
             try {
                 int _ID = Int16.Parse(id.Text);
                 string _password = password.Text;
-
+               
                 SqlCommand userLogin = new SqlCommand("userLogin", conn);
                 userLogin.CommandType = CommandType.StoredProcedure;
 
@@ -42,8 +42,7 @@ namespace GUCera
                 conn.Open();
                 userLogin.ExecuteNonQuery();
                 conn.Close();
-
-
+                
                 if (_success.Value.ToString().Equals("True"))
                 {
                     Session["user"] = _ID;
