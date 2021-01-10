@@ -49,7 +49,7 @@ namespace GUCera
                     Session["type"] = _type.Value.ToString();
 
                     if (_type.Value.ToString().Equals("0")) //instructor
-                        Response.Redirect("DefineAssignments.aspx");
+                        Response.Redirect("AddNewCourse.aspx");
                     else if (_type.Value.ToString().Equals("2")) //student
                         Response.Redirect("StudentHomePage.aspx");
                     else                                         //admin

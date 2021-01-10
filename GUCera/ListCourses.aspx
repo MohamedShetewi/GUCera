@@ -53,7 +53,7 @@
     <h1 style="color: white" class="m-5 d-flex justify-content-center">Courses</h1>
     <div class="d-flex mt-5 justify-content-center">
         <asp:Table runat="server" ID="courses" CssClass="table table-bordered table-striped table-hover courses">
-            
+
         </asp:Table>
     </div>
 </form>

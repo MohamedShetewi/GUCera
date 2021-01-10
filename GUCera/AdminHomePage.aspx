@@ -21,6 +21,7 @@
     </style>
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #261447">
     <div class="container-fluid">
         <span class="navbar-brand ms-2">GUCera</span>
