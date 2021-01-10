@@ -47,7 +47,6 @@ namespace GUCera
                 decimal _weight = Decimal.Parse(weight.Text);
                 string _content = content.Text;
                 string _deadline = deadline.Text;
-                
 
                 SqlCommand DefineAssignmentOfCourseOfCertianType = new SqlCommand("DefineAssignmentOfCourseOfCertianType", conn);
                 DefineAssignmentOfCourseOfCertianType.CommandType = CommandType.StoredProcedure;

@@ -106,11 +106,15 @@
     <Content Include="CreatePromocode.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="DefineAssignments.aspx" />
+    <Content Include="GradeAssignments.aspx" />
+    <Content Include="IssueCertificate.aspx" />
     <Content Include="IssuePromocode.aspx" />
     <Content Include="ListCourses.aspx" />
     <Content Include="ListNonAcceptedCourses.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Registeration.aspx" />
+    <Content Include="ViewAssignments.aspx" />
+    <Content Include="ViewFeedback.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -272,6 +276,20 @@
     <Compile Include="DefineAssignments.aspx.designer.cs">
       <DependentUpon>DefineAssignments.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GradeAssignments.aspx.cs">
+      <DependentUpon>GradeAssignments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GradeAssignments.aspx.designer.cs">
+      <DependentUpon>GradeAssignments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IssueCertificate.aspx.cs">
+      <DependentUpon>IssueCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IssueCertificate.aspx.designer.cs">
+      <DependentUpon>IssueCertificate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="IssuePromocode.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>IssuePromocode.aspx</DependentUpon>
@@ -309,6 +327,20 @@
       <DependentUpon>Registeration.aspx</DependentUpon>
     </Compile>
     <Compile Include="SqlParamter.cs" />
+    <Compile Include="ViewAssignments.aspx.cs">
+      <DependentUpon>ViewAssignments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewAssignments.aspx.designer.cs">
+      <DependentUpon>ViewAssignments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewFeedback.aspx.cs">
+      <DependentUpon>ViewFeedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewFeedback.aspx.designer.cs">
+      <DependentUpon>ViewFeedback.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

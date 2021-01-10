@@ -11,7 +11,7 @@ namespace GUCera
 {
 
 
-    public partial class DefineAssignments
+    public partial class IssueCertificate
     {
 
         /// <summary>
@@ -33,66 +33,30 @@ namespace GUCera
         protected global::System.Web.UI.WebControls.TextBox courseID;
 
         /// <summary>
-        /// assignmentNumber control.
+        /// studentID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox assignmentNumber;
+        protected global::System.Web.UI.WebControls.TextBox studentID;
 
         /// <summary>
-        /// assignmentType control.
+        /// issueDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList assignmentType;
+        protected global::System.Web.UI.WebControls.TextBox issueDate;
 
         /// <summary>
-        /// fullGrade control.
+        /// issueButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fullGrade;
-
-        /// <summary>
-        /// weight control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox weight;
-
-        /// <summary>
-        /// deadline control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox deadline;
-
-        /// <summary>
-        /// content control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox content;
-
-        /// <summary>
-        /// define control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button define;
+        protected global::System.Web.UI.WebControls.Button issueButton;
     }
 }

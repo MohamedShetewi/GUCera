@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DefineAssignments.aspx.cs" Inherits="GUCera.DefineAssignments" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GradeAssignments.aspx.cs" Inherits="GUCera.GradeAssignments" %>
 
 <!DOCTYPE html>
 
@@ -9,26 +9,22 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            Student ID<asp:TextBox ID="studentID" runat="server"></asp:TextBox>
+            <br />
             Course ID<asp:TextBox ID="courseID" runat="server"></asp:TextBox>
             <br />
             Assignment number<asp:TextBox ID="assignmentNumber" runat="server"></asp:TextBox>
             <br />
             Assignment type<asp:DropDownList ID="assignmentType" runat="server">
                 <asp:ListItem>Exam</asp:ListItem>
-                <asp:ListItem>Quiz</asp:ListItem>
                 <asp:ListItem>Project</asp:ListItem>
+                <asp:ListItem>Quiz</asp:ListItem>
             </asp:DropDownList>
             <br />
-            Full grade<asp:TextBox ID="fullGrade" runat="server"></asp:TextBox>
+            Grade<asp:TextBox ID="grade" runat="server"></asp:TextBox>
             <br />
-            Weight<asp:TextBox ID="weight" runat="server"></asp:TextBox>
+            <asp:Button ID="updateButton" runat="server" Text="Update grade" OnClick="updateButton_Click" />
             <br />
-            Deadline
-            <asp:TextBox ID="deadline" TextMode="Date" runat="server"></asp:TextBox>
-            <br />
-            Content<asp:TextBox ID="content" runat="server"></asp:TextBox>
-            <br />
-            <asp:Button ID="define" runat="server" Text="Define assignment" OnClick="define_Click" />
         </div>
     </form>
 </body>
