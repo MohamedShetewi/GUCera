@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace GUCera
 {
-    public partial class addMobileNumber : System.Web.UI.Page
+    public partial class AddMobileNumber : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

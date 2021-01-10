@@ -46,7 +46,8 @@ namespace GUCera
                 int _fullGrade = Int16.Parse(fullGrade.Text);
                 decimal _weight = Decimal.Parse(weight.Text);
                 string _content = content.Text;
-                string _deadline = deadline.Value;
+                string _deadline = deadline.Text;
+                
 
                 SqlCommand DefineAssignmentOfCourseOfCertianType = new SqlCommand("DefineAssignmentOfCourseOfCertianType", conn);
                 DefineAssignmentOfCourseOfCertianType.CommandType = CommandType.StoredProcedure;

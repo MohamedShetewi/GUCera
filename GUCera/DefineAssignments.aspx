@@ -23,12 +23,11 @@
             <br />
             Weight<asp:TextBox ID="weight" runat="server"></asp:TextBox>
             <br />
-            Deadline<input type="date" id="deadline" runat="server" name="deadline"
-                    min="2020-01-01" max="2030-12-31" />
+            Deadline<asp:TextBox ID="deadline" runat="server" TextMode="Date"/>
             <br />
             Content<asp:TextBox ID="content" runat="server"></asp:TextBox>
             <br />
-            <asp:Button ID="define" runat="server" Text="Define assignment" OnClick="define_Click" />
+            <asp:Button ID="define" runat="server" Text="Define assignment" OnClick="define_Click"/>
         </div>
     </form>
 </body>
