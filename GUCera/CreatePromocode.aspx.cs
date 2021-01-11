@@ -31,7 +31,7 @@ namespace GUCera
 
                 string _code = code.Text;
                 string _expiryDate = expiryDate.Text;
-                int _discount = Int16.Parse(discount.Text);
+                decimal _discount = decimal.Parse(discount.Text);
 
                 adminCreatePromocode.Parameters.Add(new SqlParameter("@code", _code));
                 adminCreatePromocode.Parameters.Add(new SqlParameter("@expiryDate", _expiryDate));
