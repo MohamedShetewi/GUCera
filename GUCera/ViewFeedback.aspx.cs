@@ -20,6 +20,8 @@ namespace GUCera
                 Response.Redirect("AdminHomePage.aspx");
             else if (Session["type"].Equals("2"))
                 Response.Redirect("StudentHomePage.aspx");
+            errorMessage.Visible = false;
+            tableTitle.Visible = false;
         }
 
         protected void viewButton_Click(object sender, EventArgs e)
@@ -29,11 +31,12 @@ namespace GUCera
 
             try
             {
-                int _ID = (int)Session["user"];
+                int _ID = (int) Session["user"];
                 int _courseID = Int16.Parse(courseID.Text);
 
 
-                SqlCommand ViewFeedbacksAddedByStudentsOnMyCourse = new SqlCommand("ViewFeedbacksAddedByStudentsOnMyCourse", conn);
+                SqlCommand ViewFeedbacksAddedByStudentsOnMyCourse =
+                    new SqlCommand("ViewFeedbacksAddedByStudentsOnMyCourse", conn);
                 ViewFeedbacksAddedByStudentsOnMyCourse.CommandType = CommandType.StoredProcedure;
 
                 ViewFeedbacksAddedByStudentsOnMyCourse.Parameters.Add(new SqlParameter("@instrId", _ID));
@@ -41,42 +44,63 @@ namespace GUCera
 
 
                 conn.Open();
-                SqlDataReader reader = ViewFeedbacksAddedByStudentsOnMyCourse.ExecuteReader(CommandBehavior.CloseConnection);
+                SqlDataReader reader =
+                    ViewFeedbacksAddedByStudentsOnMyCourse.ExecuteReader(CommandBehavior.CloseConnection);
+                
+                tableTitle.Visible = true;
+                TableHeaderRow headerRow = new TableHeaderRow();
+
+                TableHeaderCell col1 = new TableHeaderCell();
+                col1.Text = "Number";
+                col1.Scope = TableHeaderScope.Column;
+                TableHeaderCell col2 = new TableHeaderCell();
+                col2.Text = "Comment";
+                col2.Scope = TableHeaderScope.Column;
+                TableHeaderCell col3 = new TableHeaderCell();
+                col3.Text = "Number of Likes";
+                col3.Scope = TableHeaderScope.Column;
+                
+                headerRow.Cells.Add(col1);
+                headerRow.Cells.Add(col2);
+                headerRow.Cells.Add(col3);
+
+                table.Rows.Add(headerRow);
 
                 while (reader.Read())
                 {
-                    int _feedbackNumber = reader.GetInt32(reader.GetOrdinal("number"));
-                    string _comment = reader.GetString(reader.GetOrdinal("comment"));
-                    int _numberOfLikes = reader.GetInt32(reader.GetOrdinal("numberOfLikes"));
+                    string _feedbackNumber = reader["number"].ToString();
+                    string _comment = reader["comment"].ToString();
+                    string _numberOfLikes = reader["numberOfLikes"].ToString();
 
                     TableRow row = new TableRow();
 
                     TableCell _feedbackNumberCell = new TableCell();
-                    _feedbackNumberCell.Text = _feedbackNumber.ToString();
-                    row.Controls.Add(_feedbackNumberCell);
+                    _feedbackNumberCell.Text = _feedbackNumber;
+                    row.Cells.Add(_feedbackNumberCell);
 
                     TableCell _commentCell = new TableCell();
                     _commentCell.Text = _comment.ToString();
-                    row.Controls.Add(_commentCell);
+                    row.Cells.Add(_commentCell);
 
                     TableCell _numberOfLikesCell = new TableCell();
                     _numberOfLikesCell.Text = _numberOfLikes.ToString();
-                    row.Controls.Add(_numberOfLikesCell);
+                    row.Cells.Add(_numberOfLikesCell);
 
                     table.Rows.Add(row);
-
-
                 }
             }
             catch (System.FormatException)
             {
-                Response.Write("Please enter a valid course ID.");
+                errorMessage.Visible = true;
             }
             catch (System.OverflowException)
             {
-                Response.Write("Please enter a valid course ID.");
+                errorMessage.Visible = true;
             }
-
+            catch (System.Data.SqlClient.SqlException)
+            {
+                errorMessage.Visible = true;
+            }
 
         }
     }

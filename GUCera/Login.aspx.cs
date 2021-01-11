@@ -27,7 +27,7 @@ namespace GUCera
             {
                 int _ID = Int16.Parse(id.Text);
                 string _password = password.Text;
-               
+
                 SqlCommand userLogin = new SqlCommand("userLogin", conn);
                 userLogin.CommandType = CommandType.StoredProcedure;
 
@@ -43,14 +43,15 @@ namespace GUCera
                 conn.Open();
                 userLogin.ExecuteNonQuery();
                 conn.Close();
-                
+
+
                 if (_success.Value.ToString().Equals("True"))
                 {
                     Session["user"] = _ID;
                     Session["type"] = _type.Value.ToString();
 
                     if (_type.Value.ToString().Equals("0")) //instructor
-                        Response.Redirect("AddNewCourse.aspx");
+                        Response.Redirect("InstructorHomePage.aspx");
                     else if (_type.Value.ToString().Equals("2")) //student
                         Response.Redirect("StudentHomePage.aspx");
                     else //admin

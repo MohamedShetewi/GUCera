@@ -110,6 +110,7 @@
     <Content Include="Default.aspx" />
     <Content Include="DefineAssignments.aspx" />
     <Content Include="GradeAssignments.aspx" />
+    <Content Include="InstructorHomePage.aspx" />
     <Content Include="IssueCertificate.aspx" />
     <Content Include="IssuePromocode.aspx" />
     <Content Include="ListCourses.aspx" />
@@ -308,6 +309,13 @@
     </Compile>
     <Compile Include="GradeAssignments.aspx.designer.cs">
       <DependentUpon>GradeAssignments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InstructorHomePage.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>InstructorHomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InstructorHomePage.aspx.designer.cs">
+      <DependentUpon>InstructorHomePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="IssueCertificate.aspx.cs">
       <DependentUpon>IssueCertificate.aspx</DependentUpon>
