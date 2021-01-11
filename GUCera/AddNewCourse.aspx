@@ -54,7 +54,7 @@
                     Name
                 </div>
                 <div class="col">
-                    <asp:TextBox ID="courseName" runat="server" CssClass="form-control" TextMode="Number" required></asp:TextBox>
+                    <asp:TextBox ID="courseName" runat="server" CssClass="form-control" required></asp:TextBox>
                 </div>
             </div>
             <div class="row mb-3">

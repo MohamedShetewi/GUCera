@@ -83,7 +83,7 @@ namespace GUCera
         protected void view_OnClick(object sender, EventArgs e)
         {
             string courseID = ((Button) sender).ID;
-            Response.Redirect(String.Format("Course.aspx?courseID={0}",courseID));
+            Response.Redirect(String.Format("CourseInformationPage.aspx?courseID={0}",courseID));
         }
     }
 }

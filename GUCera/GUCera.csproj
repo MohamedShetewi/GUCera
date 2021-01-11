@@ -105,7 +105,7 @@
     <Content Include="Content\bootstrap.rtl.css.map" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\bootstrap.rtl.min.css.map" />
-    <Content Include="Course.aspx" />
+    <Content Include="CourseInformationPage.aspx" />
     <Content Include="CreatePromocode.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="DefineAssignments.aspx" />
@@ -274,12 +274,12 @@
     <Compile Include="AvailableCourses.aspx.designer.cs">
       <DependentUpon>AvailableCourses.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Course.aspx.cs">
+    <Compile Include="CourseInformationPage.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
-      <DependentUpon>Course.aspx</DependentUpon>
+      <DependentUpon>CourseInformationPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Course.aspx.designer.cs">
-      <DependentUpon>Course.aspx</DependentUpon>
+    <Compile Include="CourseInformationPage.aspx.designer.cs">
+      <DependentUpon>CourseInformationPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreatePromocode.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
