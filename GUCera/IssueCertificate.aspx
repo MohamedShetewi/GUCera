@@ -80,7 +80,7 @@
     </div>
     <div class="d-flex justify-content-center mt-4" runat="server" id="message">
         <div class="alert alert-success" role="alert">
-            Assignment Defined Successfully!
+            Certificate Issued Successfully!
         </div>
     </div>
     <div class="d-flex justify-content-center mt-4" runat="server" id="errorMessage">
