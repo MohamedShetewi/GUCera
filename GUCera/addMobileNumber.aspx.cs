@@ -20,9 +20,9 @@ namespace GUCera
             else if (Session["type"].ToString().Equals("0"))
                 type = "Instructor";
             else if (Session["type"].ToString().Equals("1"))
-                type = "Student";
-            else
                 type = "Admin";
+            else
+                type = "Student";
             message.Visible = false;
             errorMessage.Visible = false;
         }
