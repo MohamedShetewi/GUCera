@@ -2,13 +2,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
 <head runat="server">
+    <link href="Content/bootstrap.css" rel="stylesheet"/>
+    <script src="Scripts/bootstrap.bundle.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Student Home Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <style type="text/css">
+                  body{
+                      background-color: #29BE75;
+                  }
+                  .courses{
+                     width: 70%;
+                     background-color: rgba(254, 252, 251, 0.7);
+                     text-align: center;
+                  } .vertical-center {
+                     min-height:50%;  /* Fallback for browsers do NOT support vh unit */
+                     min-height: 60vh; /* These two lines are counted as one :-)       */                       
+                     display: flex;
+                     align-items: center;        
+                  }
+                   .inputs{
+                                      background-color: rgba(254, 252, 251, 0.8);
+                                      border-radius: 20px;
+                                  }
+               		     
+              </style>
 </head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #261447">
     <div class="container-fluid">
@@ -23,9 +44,6 @@
                         <li>
                             <a class="dropdown-item" href="AddMobileNumber.aspx">Add Mobile Number</a>
                         </li>
-                        <li>
-                            <a class="dropdown-item" href="AddMobileNumber.aspx">Add Mobile Number</a>
-                        </li>
                     </ul>
                 </li>
             </ul>
@@ -33,44 +51,61 @@
     </div>
 </nav>
 <form id="form1" runat="server">
-    <div>
+    <div class="container bootstrap snippets bootdey">
+
+
+        <div class="d-flex mt-5 justify-content-center">
+
+      
+
+
+            <asp:table class="table table-user-information" ID="information" runat="server">
+
+                <asp:TableRow runat="server" ID="IDRow">
+                    <asp:TableCell>
+                        <strong>ID</strong>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow runat="server" ID="firstNameRow">
+                    <asp:TableCell>
+                        <strong>First Name</strong>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow runat="server" ID="lastNameRow">
+                    <asp:TableCell>
+                        <strong>Last Name</strong>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow runat="server" ID="passwordRow">
+                    <asp:TableCell>
+                        <strong>Password</strong>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow runat="server" ID="emailRow">
+                    <asp:TableCell>
+                        <strong>Email</strong>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow runat="server" ID="genderRow">
+                    <asp:TableCell>
+                        <strong>Gender</strong>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow runat="server" ID="addressRow">
+                    <asp:TableCell>
+                        <strong>Address</strong>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow runat="server" ID="gpaRow">
+                    <asp:TableCell>
+                        <strong>GPA</strong>
+                    </asp:TableCell>
+                </asp:TableRow>
+
+            </asp:table>
+        </div>
     </div>
 
-
-    ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-    <asp:Label ID="idLabel" runat="server"></asp:Label>
-
-    <br/>
-
-    First Name&nbsp;&nbsp;
-    <asp:Label ID="firstNameLabel" runat="server"></asp:Label>
-
-    <br/>
-
-    Last Name&nbsp;&nbsp;&nbsp;
-    <asp:Label ID="lastNameLabel" runat="server"></asp:Label>
-
-    <br/>
-
-    Password&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Label ID="passwordLabel" runat="server"></asp:Label>
-
-    <br/>
-
-    Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Label ID="emailLabel" runat="server"></asp:Label>
-
-    <br/>
-    Gender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Label ID="genderLabel" runat="server"></asp:Label>
-
-    <br/>
-    Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Label ID="addressLabel" runat="server"></asp:Label>
-
-    <br/>
-    GPA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Label ID="gpaLabel" runat="server"></asp:Label>
     <br/>
     <asp:Button ID="listCourseBtn" onClick="availableCourses_OnClick" runat="server" Text="List Courses"/>
     <br/>
@@ -78,5 +113,6 @@
     <br/>
     <asp:Button ID="viewPromoCodes" onClick="viewPromoCodes_OnClick" runat="server" Text="Promocodes"/>
 </form>
+
 </body>
 </html>

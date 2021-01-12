@@ -32,7 +32,6 @@
                 .inputs{
                     background-color: rgba(254, 252, 251, 0.8);
                     border-radius: 20px;
-                 
                 }
     </style>
 </head>
@@ -42,7 +41,7 @@
     <div class="vertical-center">
         <div class="container inputs p-4">
             <div class="row mb-2">
-                <div class="col">ID</div>
+                <div class="col">ID </div>
                 <div class="col-6">
                     <asp:TextBox ID="id" runat="server" CssClass="form-control" TextMode="Number" required></asp:TextBox>
                 </div>

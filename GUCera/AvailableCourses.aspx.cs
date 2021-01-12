@@ -31,6 +31,7 @@ namespace GUCera
             connection.Open();
             SqlDataReader queryReader = listCourses.ExecuteReader();
             
+            
             while (queryReader.Read())
             {
                 TableRow row = new TableRow();

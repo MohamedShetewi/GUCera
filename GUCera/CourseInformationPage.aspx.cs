@@ -37,7 +37,7 @@ namespace GUCera
         {
             SqlCommand courseInformation = new SqlCommand("courseInformation", connection);
             courseInformation.CommandType = CommandType.StoredProcedure;
-            courseInformation.Parameters.Add("@id", courseID);
+            courseInformation.Parameters.Add(new SqlParameter("@id", courseID));
 
             connection.Open();
             SqlDataReader queryReader = courseInformation.ExecuteReader();
