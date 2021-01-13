@@ -12,6 +12,7 @@ namespace GUCera
 {
     public partial class Registeration : System.Web.UI.Page
     {
+        protected string id;
         protected void Page_Load(object sender, EventArgs e)
         {
             message.Visible = false;
@@ -54,6 +55,21 @@ namespace GUCera
                         conn.Open();
                         instructorRegister.ExecuteNonQuery();
                         conn.Close();
+                        
+                        string query = "select id from Users where email = @email";
+                        SqlCommand getID = new SqlCommand(query, conn);
+                        getID.Parameters.AddWithValue("@email", _email);
+                        
+                        conn.Open();
+                        SqlDataReader reader = getID.ExecuteReader();
+                       
+                        
+                        while (reader.Read())
+                        {
+                            id = reader["id"].ToString();
+                        }
+                        conn.Close();
+                        
                         message.Visible = true;
                     }
                     catch (System.Data.SqlClient.SqlException)
@@ -78,6 +94,21 @@ namespace GUCera
                         conn.Open();
                         studentRegister.ExecuteNonQuery();
                         conn.Close();
+                        
+                        string query = "select id from Users where email = @email";
+                        SqlCommand getID = new SqlCommand(query, conn);
+                        getID.Parameters.AddWithValue("@email", _email);
+                        
+                        conn.Open();
+                        SqlDataReader reader = getID.ExecuteReader();
+                       
+                        
+                        while (reader.Read())
+                        {
+                            id = reader["id"].ToString();
+                        }
+                        conn.Close();
+                        
                         message.Visible = true;
                     }
                     catch (System.Data.SqlClient.SqlException)

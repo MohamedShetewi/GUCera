@@ -76,9 +76,31 @@
                 <h3 class="mt-2">View Promocodes</h3><br/>
                 <asp:Button runat="server" ID="btn3" CssClass="btn btn-primary" Text="View" OnClick="viewPromoCodes_OnClick"/>
             </div>
-            
+            <div class="container col-4 mt-5 pb-5 text-center" style="background-color: rgba(254, 252, 251, 0.8); border-radius: 20px">
+                <h3 class="mt-2">Add Feedbacks</h3><br/>
+                <asp:Button runat="server" ID="btn4" CssClass="btn btn-primary" Text="Add" OnClick="addFeedback_OnClick"/>
+            </div>
         </div>
-       
+        <div class="row">
+            <div class="container col-4 mt-5 pb-5 text-center" style="background-color: rgba(254, 252, 251, 0.8); border-radius: 20px">
+                <h3 class="mt-2">Submit an Assignment</h3><br/>
+                <asp:Button runat="server" ID="btn5" CssClass="btn btn-primary" Text="Submit" OnClick="submitAssignment_OnClick"/>
+            </div>
+            <div class="container col-4 mt-5 pb-5 text-center" style="background-color: rgba(254, 252, 251, 0.8); border-radius: 20px">
+                <h3 class="mt-2">View Assignment Content</h3><br/>
+                <asp:Button runat="server" ID="btn6" CssClass="btn btn-primary" Text="View" OnClick="viewAssignmentContent_OnClick"/>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="container col-4 mt-5 pb-5 text-center" style="background-color: rgba(254, 252, 251, 0.8); border-radius: 20px">
+                <h3 class="mt-2">View Certificates</h3><br/>
+                <asp:Button runat="server" ID="btn7" CssClass="btn btn-primary" Text="View" OnClick="certificates_OnClick"/>
+            </div>
+            <div class="container col-4 mt-5 pb-5 text-center" style="background-color: rgba(254, 252, 251, 0.8); border-radius: 20px">
+                <h3 class="mt-2">View Assignment Grade</h3><br/>
+                <asp:Button runat="server" ID="btn8" CssClass="btn btn-primary" Text="View" OnClick="viewAssignmentGrade_OnClick"/>
+            </div>
+        </div>
     </div>
 </form>
 </body>

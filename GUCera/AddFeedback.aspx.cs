@@ -45,7 +45,6 @@ namespace GUCera
                 addFeedback.ExecuteNonQuery();
                 conn.Close();
                 message.Visible = true;
-
             }
             catch (System.FormatException)
             {
@@ -59,7 +58,6 @@ namespace GUCera
             {
                 errorMessage.Visible = true;
             }
-
         }
     }
 }

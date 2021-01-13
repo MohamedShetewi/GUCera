@@ -35,5 +35,26 @@ namespace GUCera
         {
           Response.Redirect("Promocodes.aspx");
         }
+        
+        protected void addFeedback_OnClick(object sender, EventArgs e)
+        {
+            Response.Redirect("AddFeedback.aspx");
+        }
+        protected void submitAssignment_OnClick(object sender, EventArgs e)
+        {
+            Response.Redirect("SubmitAssignment.aspx");
+        }
+        protected void viewAssignmentContent_OnClick(object sender, EventArgs e)
+        {
+            Response.Redirect("ViewAssignmentsContent.aspx");
+        }
+        protected void certificates_OnClick(object sender, EventArgs e)
+        {
+            Response.Redirect("Certificates.aspx");
+        }
+        protected void viewAssignmentGrade_OnClick(object sender, EventArgs e)
+        {
+            Response.Redirect("ViewAssignmentGrade.aspx");
+        }
     }
 }

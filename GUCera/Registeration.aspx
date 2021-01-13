@@ -98,7 +98,7 @@
     </div>
     <div class="d-flex justify-content-center" runat="server" ID="message">
         <div class="alert alert-success" role="alert" style="max-width: fit-content">
-            User Registered Successfully! <a class="link-success" href="Login.aspx">Login Here.</a>
+            User Registered Successfully! <strong>Your ID: <% =id %>.</strong> <a class="link-success" href="Login.aspx">Login Here.</a>
         </div>
     </div>
     <div class="d-flex justify-content-center" runat="server" ID="errorMessage">
