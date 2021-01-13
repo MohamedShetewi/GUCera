@@ -38,6 +38,9 @@
                         <li>
                             <a class="dropdown-item" href="AddMobileNumber.aspx">Add Mobile Number</a>
                         </li>
+                        <li>
+                            <a class="dropdown-item" href="StudentInformationPage.aspx">Student Information</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">

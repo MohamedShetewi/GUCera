@@ -37,10 +37,10 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li>
-                            <a class="dropdown-item" href="StudentInformationPage.aspx">Personal Information</a>
+                            <a class="dropdown-item" href="AddMobileNumber.aspx">Add Mobile Number</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="AddMobileNumber.aspx">Add Mobile Number</a>
+                            <a class="dropdown-item" href="StudentInformationPage.aspx">Personal Information</a>
                         </li>
                     </ul>
                 </li>

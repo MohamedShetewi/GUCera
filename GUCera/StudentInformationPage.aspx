@@ -62,7 +62,7 @@
 <form id="form1" runat="server">
     <div class="container">
 
-        <h1 style="color: rgba(254, 252, 251, 0.7)" class="m-5 d-flex justify-content-center">Information</h1>
+        <h1 style="color: white" class="m-5 d-flex justify-content-center">Information</h1>
         <div class="d-flex mt-5 justify-content-center">
             <asp:table class="table table-user-information" CellPadding="10" CssClass="courses table-striped" ID="information" runat="server">
 

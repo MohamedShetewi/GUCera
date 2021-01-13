@@ -47,6 +47,7 @@ namespace GUCera
                 view.Text = "View Course";
                 view.ID = courseID.ToString();
                 view.Attributes.Add("runat", "server");
+                view.CssClass = "btn btn-primary";
                 view.Click += new EventHandler(view_OnClick);
                 
                 viewCourseCell.Controls.Add(view);

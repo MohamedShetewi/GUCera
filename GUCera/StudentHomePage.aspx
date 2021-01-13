@@ -46,7 +46,7 @@
                             <a class="dropdown-item" href="AddMobileNumber.aspx">Add Mobile Number</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="StudentInformationPage.aspx">Information</a>
+                            <a class="dropdown-item" href="StudentInformationPage.aspx">Student Information</a>
                         </li>
                     </ul>
                 </li>
@@ -68,13 +68,13 @@
             </div>
             <div class="container col-4 mt-5 pb-5 text-center" style="background-color: rgba(254, 252, 251, 0.8); border-radius: 20px">
                 <h3 class="mt-2" style="text-align: center">Add Credit Card</h3><br/>
-                <asp:Button runat="server" ID="btn2" CssClass="btn btn-primary" Text="View" OnClick="addCreditCard_OnClick"/>
+                <asp:Button runat="server" ID="btn2" CssClass="btn btn-primary" Text="Add" OnClick="addCreditCard_OnClick"/>
             </div>
         </div>
         <div class="row">
             <div class="container col-4 mt-5 pb-5 text-center" style="background-color: rgba(254, 252, 251, 0.8); border-radius: 20px">
                 <h3 class="mt-2">View Promocodes</h3><br/>
-                <asp:Button runat="server" ID="btn3" CssClass="btn btn-primary" Text="Create" OnClick="viewPromoCodes_OnClick"/>
+                <asp:Button runat="server" ID="btn3" CssClass="btn btn-primary" Text="View" OnClick="viewPromoCodes_OnClick"/>
             </div>
             
         </div>

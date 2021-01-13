@@ -52,10 +52,10 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li>
-                            <a class="dropdown-item" href="StudentInformationPage.aspx">Personal Information</a>
+                            <a class="dropdown-item" href="AddMobileNumber.aspx">Add Mobile Number</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="AddMobileNumber.aspx">Add Mobile Number</a>
+                            <a class="dropdown-item" href="StudentInformationPage.aspx">Personal Information</a>
                         </li>
                     </ul>
                 </li>
@@ -100,7 +100,7 @@
                 </div>
             </div>
             <div class="text-center mb-2 mt-3">
-                <asp:Button runat="server" Text="Register" oncLick="add_OnClick" class="btn btn-outline-primary"/>
+                <asp:Button runat="server" Text="Add" oncLick="add_OnClick" class="btn btn-primary"/>
             </div>
             <div class="d-flex justify-content-center" runat="server" ID="successMessage">
                 <div class="alert alert-success" role="alert" style="max-width: fit-content">
