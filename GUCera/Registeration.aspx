@@ -90,7 +90,7 @@
                         <asp:ListItem Value="0">Instructor</asp:ListItem>
                     </asp:DropDownList>
                 </div>
-            </div>
+            </div> 
             <div class="text-center mb-2 mt-3">
                 <asp:Button ID="register" runat="server" Text="Register" oncLick="register_Click" class="btn btn-outline-primary"/>
             </div>

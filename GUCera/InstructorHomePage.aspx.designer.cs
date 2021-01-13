@@ -10,60 +10,69 @@
 namespace GUCera {
     
     
-    public partial class ViewFeedback {
+    public partial class InstructorHomePage {
         
         /// <summary>
-        /// form1 control.
+        /// HtmlForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify, move the field declaration from the designer file to a code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm HtmlForm;
         
         /// <summary>
-        /// courseID control.
+        /// btn1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify, move the field declaration from the designer file to a code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox courseID;
+        protected global::System.Web.UI.WebControls.Button btn1;
         
         /// <summary>
-        /// viewButton control.
+        /// btn2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify, move the field declaration from the designer file to a code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button viewButton;
+        protected global::System.Web.UI.WebControls.Button btn2;
         
         /// <summary>
-        /// tableTitle control.
+        /// btn3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify, move the field declaration from the designer file to a code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tableTitle;
+        protected global::System.Web.UI.WebControls.Button btn3;
         
         /// <summary>
-        /// table control.
+        /// btn4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify, move the field declaration from the designer file to a code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table table;
+        protected global::System.Web.UI.WebControls.Button btn4;
         
         /// <summary>
-        /// errorMessage control.
+        /// btn5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify, move the field declaration from the designer file to a code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorMessage;
+        protected global::System.Web.UI.WebControls.Button btn5;
+        
+        /// <summary>
+        /// btn6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify, move the field declaration from the designer file to a code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn6;
     }
 }

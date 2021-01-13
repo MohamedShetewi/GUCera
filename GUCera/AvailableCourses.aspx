@@ -1,4 +1,4 @@
-<%@ Page Language="C#" CodeBehind="ListCourses.aspx.cs" Inherits="GUCera.ListCourses" %>
+﻿<%@ Page Title="Available Courses" Language="C#" CodeBehind="AvailableCourses.aspx.cs" Inherits="GUCera.AvailableCourses" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,21 +8,21 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>List Courses</title>
+    <title>Title</title>
     <link href="Content/bootstrap.css" rel="stylesheet"/>
     <script src="Scripts/bootstrap.bundle.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css">
-        body{
-            background-color: #29BE75;
-        }
-        .courses{
-           width: 70%;
-            background-color: rgba(254, 252, 251, 0.7);
-            text-align: center;
-        }
-    </style>
+                body{
+                    background-color: #29BE75;
+                }
+                .courses{
+                   width: 70%;
+                    background-color: rgba(254, 252, 251, 0.7);
+                    text-align: center;
+                }
+            </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #261447">
@@ -38,23 +38,27 @@
                         <li>
                             <a class="dropdown-item" href="AddMobileNumber.aspx">Add Mobile Number</a>
                         </li>
+                        <li>
+                            <a class="dropdown-item" href="StudentInformationPage.aspx">Student Information</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="AdminHomePage.aspx">
-                        Admin Dashboard
+                    <a class="nav-link" href="StudentHomePage.aspx">
+                        Student Dashboard
                     </a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-<form id="HtmlForm" runat="server">
-    <h1 style="color: white" class="m-5 d-flex justify-content-center">Courses</h1>
-    <div class="d-flex mt-5 justify-content-center">
-        <asp:Table runat="server" ID="courses" CssClass="table table-bordered table-striped table-hover courses">
-
-        </asp:Table>
+<form id="form1" runat="server">
+    <h1 style="color: white" class="m-5 d-flex justify-content-center">Available Courses</h1>
+    <div class="container">
+        <div class="d-flex mt-5 justify-content-center">
+            <asp:Table style="width:100%" runat="server" ID="availableCourses" CssClass="table table-bordered table-striped table-hover courses">
+            </asp:Table>
+        </div>
     </div>
 </form>
 </body>

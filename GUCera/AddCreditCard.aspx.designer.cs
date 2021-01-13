@@ -10,52 +10,61 @@
 namespace GUCera {
     
     
-    public partial class ViewFeedback {
+    public partial class AddCreditCard {
         
         /// <summary>
-        /// form1 control.
+        /// HtmlForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify, move the field declaration from the designer file to a code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm HtmlForm;
         
         /// <summary>
-        /// courseID control.
+        /// creditCardNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify, move the field declaration from the designer file to a code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox courseID;
+        protected global::System.Web.UI.WebControls.TextBox creditCardNumber;
         
         /// <summary>
-        /// viewButton control.
+        /// holderName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify, move the field declaration from the designer file to a code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button viewButton;
+        protected global::System.Web.UI.WebControls.TextBox holderName;
         
         /// <summary>
-        /// tableTitle control.
+        /// expiryDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify, move the field declaration from the designer file to a code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tableTitle;
+        protected global::System.Web.UI.WebControls.TextBox expiryDate;
         
         /// <summary>
-        /// table control.
+        /// cvv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify, move the field declaration from the designer file to a code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table table;
+        protected global::System.Web.UI.WebControls.TextBox cvv;
+        
+        /// <summary>
+        /// successMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify, move the field declaration from the designer file to a code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl successMessage;
         
         /// <summary>
         /// errorMessage control.
