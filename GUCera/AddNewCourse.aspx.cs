@@ -44,6 +44,7 @@ namespace GUCera
                 InstAddCourse.Parameters.Add(new SqlParameter("@price", _price));
                 InstAddCourse.Parameters.Add(new SqlParameter("@instructorId", Session["user"]));
 
+                
                 conn.Open();
                 InstAddCourse.ExecuteNonQuery();
                 conn.Close();

@@ -25,7 +25,7 @@
             </style>
 </head>
 <body>
-    
+
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #261447">
     <div class="container-fluid">
         <span class="navbar-brand ms-2">GUCera</span>
@@ -36,6 +36,9 @@
                         User ID: <% = Session["user"] %>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li>
+                            <a class="dropdown-item" href="StudentInformationPage.aspx">Personal Information</a>
+                        </li>
                         <li>
                             <a class="dropdown-item" href="AddMobileNumber.aspx">Add Mobile Number</a>
                         </li>
@@ -52,7 +55,7 @@
 </nav>
 
 <form id="form1" runat="server">
-    <h1 style="color: white" class="m-5 d-flex justify-content-center">Available Courses</h1>
+    <h1 style="color: white" class="m-5 d-flex justify-content-center">Promocodes</h1>
     <div class="container">
         <div class="d-flex mt-5 justify-content-center">
             <asp:Table style="width:100%" runat="server" ID="promocodes" CssClass="table table-bordered table-striped table-hover courses">

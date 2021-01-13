@@ -10,27 +10,15 @@ namespace GUCera
     public partial class Course : Page
     {
         public static int courseID;
+        public static int instructorID;
         public static string connectionStr = WebConfigurationManager.ConnectionStrings["GUCera"].ToString();
         public static SqlConnection connection = new SqlConnection(connectionStr);
 
         protected void Page_Load(object sender, EventArgs e)
         {
             courseID = Int16.Parse(Request.QueryString["courseID"]);
-
             setCourseInformation();
-
-            instructorList.Items.Clear();
-
-            connection = new SqlConnection(connectionStr);
-            string queryString = "select insid from InstructorTeachCourse where cid = @courseID";
-            SqlCommand command = new SqlCommand(queryString, connection);
-            command.Parameters.AddWithValue("@courseID", courseID);
-            connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-                setInstructorName(Int16.Parse(reader["insid"].ToString()));
-
-            connection.Close();
+            
         }
 
         private void setCourseInformation()
@@ -41,58 +29,40 @@ namespace GUCera
 
             connection.Open();
             SqlDataReader queryReader = courseInformation.ExecuteReader();
+
             while (queryReader.Read())
             {
-                nameLabel.Text = queryReader["name"].ToString();
-                creditHoursLabel.Text = queryReader["creditHours"].ToString();
-                priceLabel.Text = queryReader["price"].ToString();
-                courseDesLabel.Text = queryReader["courseDescription"].ToString();
+                nameRow.Cells.Add(addCell(queryReader["name"].ToString()));
+                creditHoursRow.Cells.Add(addCell(queryReader["creditHours"].ToString()));
+                priceRow.Cells.Add(addCell(queryReader["price"].ToString()));
+                descriptionRow.Cells.Add(addCell(queryReader["courseDescription"].ToString()));
+                instructorCell.Cells.Add(addCell(queryReader["firstName"].ToString() + " " +
+                                                 queryReader["lastName"].ToString()));
             }
-
             connection.Close();
-        }
-
-        private void setInstructorName(int id)
-        {
-            string connectionStr = WebConfigurationManager.ConnectionStrings["GUCera"].ToString();
-            SqlConnection connection2 = new SqlConnection(connectionStr);
-            string queryString =
-                "select firstName, lastName from InstructorTeachCourse inner join Users on insid = id where insid = @instID";
-            SqlCommand getInstructor = new SqlCommand(queryString, connection2);
-            getInstructor.Parameters.AddWithValue("@instID", id);
-
-            ListItem instItem = new ListItem();
-            instItem.Value = id.ToString();
-
-            connection2.Open();
-            SqlDataReader sqlDataReader = getInstructor.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
-                instItem.Text = sqlDataReader["firstName"].ToString() + " " +
-                                sqlDataReader["lastName"].ToString();
-            }
-
-            connection2.Close();
-            instructorList.Items.Add(instItem);
+            
         }
 
         protected void enroll_OnClick(object sender, EventArgs e)
         {
-            if (instructorList.SelectedValue == "-1")
+            try
             {
-                Response.Write("Please choose Instructor");
-            }
-            else
-            {
-                string connectionStr = WebConfigurationManager.ConnectionStrings["GUCera"].ToString();
-                SqlConnection connection = new SqlConnection(connectionStr);
-                int studentID = Int16.Parse(Session["user"].ToString());
-                int instructorID = Int16.Parse(instructorList.SelectedValue);
+                connection = new SqlConnection(connectionStr);
+                string queryString = "select insid from InstructorTeachCourse where cid = @courseID";
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@courseID", courseID);
 
-                Response.Write(studentID);
-                Response.Write(instructorID);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                    instructorID = (Int16.Parse(reader["insid"].ToString()));
+
+                connection.Close();
 
                 //@sid INT, @cid INT, @instr int
+
+                int studentID = Int16.Parse(Session["user"].ToString());
+
                 SqlCommand enroll = new SqlCommand("enrollInCourse", connection);
                 enroll.CommandType = CommandType.StoredProcedure;
 
@@ -103,9 +73,20 @@ namespace GUCera
                 connection.Open();
                 enroll.ExecuteNonQuery();
                 connection.Close();
-
-                Response.Write("Enrolled Successfully!!");
+                successMessage.Visible = true;
             }
+            catch(SqlException)
+            {
+                errorMessage.Visible = true;
+            }
+        }
+
+
+        private TableCell addCell(string value)
+        {
+            TableCell cell = new TableCell();
+            cell.Text = value;
+            return cell;
         }
     }
 }

@@ -22,57 +22,75 @@ namespace GUCera {
         protected global::System.Web.UI.HtmlControls.HtmlForm HtmlForm;
         
         /// <summary>
-        /// nameLabel control.
+        /// information control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify, move the field declaration from the designer file to a code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label nameLabel;
+        protected global::System.Web.UI.WebControls.Table information;
         
         /// <summary>
-        /// creditHoursLabel control.
+        /// nameRow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify, move the field declaration from the designer file to a code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label creditHoursLabel;
+        protected global::System.Web.UI.WebControls.TableRow nameRow;
         
         /// <summary>
-        /// priceLabel control.
+        /// creditHoursRow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify, move the field declaration from the designer file to a code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label priceLabel;
+        protected global::System.Web.UI.WebControls.TableRow creditHoursRow;
         
         /// <summary>
-        /// courseDesLabel control.
+        /// priceRow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify, move the field declaration from the designer file to a code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label courseDesLabel;
+        protected global::System.Web.UI.WebControls.TableRow priceRow;
         
         /// <summary>
-        /// instructorList control.
+        /// descriptionRow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify, move the field declaration from the designer file to a code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList instructorList;
+        protected global::System.Web.UI.WebControls.TableRow descriptionRow;
         
         /// <summary>
-        /// enrollBtn control.
+        /// instructorCell control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify, move the field declaration from the designer file to a code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button enrollBtn;
+        protected global::System.Web.UI.WebControls.TableRow instructorCell;
+        
+        /// <summary>
+        /// successMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify, move the field declaration from the designer file to a code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl successMessage;
+        
+        /// <summary>
+        /// errorMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify, move the field declaration from the designer file to a code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorMessage;
     }
 }

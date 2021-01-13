@@ -23,14 +23,15 @@
                      display: flex;
                      align-items: center;        
                   }
-                   .inputs{
-                                      background-color: rgba(254, 252, 251, 0.8);
-                                      border-radius: 20px;
-                                  }
+                  .courses{
+                    border-radius: 20px;      
+                    background-color: rgba(254, 252, 251, 0.7);
+                  }
                		     
               </style>
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #261447">
     <div class="container-fluid">
         <span class="navbar-brand ms-2">GUCera</span>
@@ -44,75 +45,41 @@
                         <li>
                             <a class="dropdown-item" href="AddMobileNumber.aspx">Add Mobile Number</a>
                         </li>
+                        <li>
+                            <a class="dropdown-item" href="StudentInformationPage.aspx">Information</a>
+                        </li>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="StudentHomePage.aspx">
+                        Student Dashboard
+                    </a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 <form id="form1" runat="server">
-    <div class="container bootstrap snippets bootdey">
-
-
-        <div class="d-flex mt-5 justify-content-center">
-
-      
-
-
-            <asp:table class="table table-user-information" ID="information" runat="server">
-
-                <asp:TableRow runat="server" ID="IDRow">
-                    <asp:TableCell>
-                        <strong>ID</strong>
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow runat="server" ID="firstNameRow">
-                    <asp:TableCell>
-                        <strong>First Name</strong>
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow runat="server" ID="lastNameRow">
-                    <asp:TableCell>
-                        <strong>Last Name</strong>
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow runat="server" ID="passwordRow">
-                    <asp:TableCell>
-                        <strong>Password</strong>
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow runat="server" ID="emailRow">
-                    <asp:TableCell>
-                        <strong>Email</strong>
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow runat="server" ID="genderRow">
-                    <asp:TableCell>
-                        <strong>Gender</strong>
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow runat="server" ID="addressRow">
-                    <asp:TableCell>
-                        <strong>Address</strong>
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow runat="server" ID="gpaRow">
-                    <asp:TableCell>
-                        <strong>GPA</strong>
-                    </asp:TableCell>
-                </asp:TableRow>
-
-            </asp:table>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container col-4 mt-5 pb-5 text-center" style="background-color: rgba(254, 252, 251, 0.8); border-radius: 20px">
+                <h3 class="mt-2" style="text-align: center">Available Courses</h3><br/>
+                <asp:Button runat="server" ID="btn1" CssClass="btn btn-primary" Text="View" OnClick="availableCourses_OnClick"/>
+            </div>
+            <div class="container col-4 mt-5 pb-5 text-center" style="background-color: rgba(254, 252, 251, 0.8); border-radius: 20px">
+                <h3 class="mt-2" style="text-align: center">Add Credit Card</h3><br/>
+                <asp:Button runat="server" ID="btn2" CssClass="btn btn-primary" Text="View" OnClick="addCreditCard_OnClick"/>
+            </div>
         </div>
+        <div class="row">
+            <div class="container col-4 mt-5 pb-5 text-center" style="background-color: rgba(254, 252, 251, 0.8); border-radius: 20px">
+                <h3 class="mt-2">View Promocodes</h3><br/>
+                <asp:Button runat="server" ID="btn3" CssClass="btn btn-primary" Text="Create" OnClick="viewPromoCodes_OnClick"/>
+            </div>
+            
+        </div>
+       
     </div>
-
-    <br/>
-    <asp:Button ID="listCourseBtn" onClick="availableCourses_OnClick" runat="server" Text="List Courses"/>
-    <br/>
-    <asp:Button ID="addCreditCard" onClick="addCreditCard_OnClick" runat="server" Text="Add Credit Card"/>
-    <br/>
-    <asp:Button ID="viewPromoCodes" onClick="viewPromoCodes_OnClick" runat="server" Text="Promocodes"/>
 </form>
-
 </body>
 </html>
