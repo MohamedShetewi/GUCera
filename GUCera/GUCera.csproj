@@ -119,6 +119,7 @@
     <Content Include="Promocodes.aspx" />
     <Content Include="Registeration.aspx" />
     <Content Include="StudentHomePage.aspx" />
+    <Content Include="StudentInformationPage.aspx" />
     <Content Include="ViewAssignments.aspx" />
     <Content Include="ViewFeedback.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -373,6 +374,13 @@
     </Compile>
     <Compile Include="StudentHomePage.aspx.designer.cs">
       <DependentUpon>StudentHomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentInformationPage.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>StudentInformationPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentInformationPage.aspx.designer.cs">
+      <DependentUpon>StudentInformationPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewAssignments.aspx.cs">
       <DependentUpon>ViewAssignments.aspx</DependentUpon>

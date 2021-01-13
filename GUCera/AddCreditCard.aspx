@@ -52,6 +52,9 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li>
+                            <a class="dropdown-item" href="StudentInformationPage.aspx">Personal Information</a>
+                        </li>
+                        <li>
                             <a class="dropdown-item" href="AddMobileNumber.aspx">Add Mobile Number</a>
                         </li>
                     </ul>
@@ -65,7 +68,6 @@
         </div>
     </div>
 </nav>
-
 
 
 <form id="HtmlForm" runat="server">
@@ -94,7 +96,7 @@
             <div class="row mb-2">
                 <div class="col">CVV</div>
                 <div class="col-8">
-                    <asp:TextBox ID="cvv" runat="server" class="form-control"  required placeholder="eg. 125"></asp:TextBox>
+                    <asp:TextBox ID="cvv" runat="server" class="form-control" required placeholder="eg. 125"></asp:TextBox>
                 </div>
             </div>
             <div class="text-center mb-2 mt-3">
@@ -102,7 +104,7 @@
             </div>
             <div class="d-flex justify-content-center" runat="server" ID="successMessage">
                 <div class="alert alert-success" role="alert" style="max-width: fit-content">
-                    Added Successfully! 
+                    Added Successfully!
                 </div>
             </div>
             <div class="d-flex justify-content-center" runat="server" ID="errorMessage">
