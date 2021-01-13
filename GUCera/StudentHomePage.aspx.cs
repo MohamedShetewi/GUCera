@@ -12,15 +12,14 @@ namespace GUCera
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            if (Session["user"] == null)
+                Response.Redirect("Login.aspx");
+            else if (Session["type"].Equals("1"))
+                Response.Redirect("AdminHomePage.aspx");
+            else if (Session["type"].Equals("0"))
+                Response.Redirect("InstructorHomePage.aspx");      
         }
 
-        private TableCell addCell( string value)
-        {
-            TableCell cell = new TableCell();
-            cell.Text = value;
-            return cell;
-        }
         
         protected void availableCourses_OnClick(object sender, EventArgs e)
         {
