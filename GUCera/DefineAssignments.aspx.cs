@@ -71,5 +71,10 @@ namespace GUCera
             }
 
         }
+
+        protected void assignmentType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
