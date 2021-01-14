@@ -68,7 +68,6 @@ namespace GUCera
                 grade.Visible = true;
                 errorMessage.Visible = true;
             }
-
         }
     }
 }

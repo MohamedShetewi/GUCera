@@ -77,6 +77,7 @@ namespace GUCera
             }
             catch(SqlException)
             {
+                connection.Close();
                 errorMessage.Visible = true;
             }
         }
