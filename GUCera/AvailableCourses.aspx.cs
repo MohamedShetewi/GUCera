@@ -76,7 +76,6 @@ namespace GUCera
             {
                 courseID = Int16.Parse(reader["id"].ToString());
             }
-            
             connection.Close();
             
             return courseID;

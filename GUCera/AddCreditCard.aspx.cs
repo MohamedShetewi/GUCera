@@ -9,7 +9,7 @@ namespace GUCera
     public partial class AddCreditCard : Page
     {
         public static string connectionStr = WebConfigurationManager.ConnectionStrings["GUCera"].ToString();
-        public static SqlConnection connection = new SqlConnection(connectionStr);
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,8 +19,10 @@ namespace GUCera
 
         protected void add_OnClick(object sender, EventArgs e)
         {
+            
             try
             {
+                SqlConnection connection = new SqlConnection(connectionStr);
                 int id = Int16.Parse(Session["user"].ToString());
                 string _creditCard = creditCardNumber.Text;
                 string _holderName = holderName.Text;
@@ -41,7 +43,7 @@ namespace GUCera
                 connection.Close();
                 successMessage.Visible = true;
             }
-            catch (Exception exception)
+            catch (SqlException)
             {
                 errorMessage.Visible = true;
             }
