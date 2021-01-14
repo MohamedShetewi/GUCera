@@ -18,7 +18,9 @@ namespace GUCera
         {
             courseID = Int16.Parse(Request.QueryString["courseID"]);
             setCourseInformation();
-            
+            errorMessage.Visible = false;
+            successMessage.Visible = false;
+
         }
 
         private void setCourseInformation()
